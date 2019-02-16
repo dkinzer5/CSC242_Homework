@@ -1,92 +1,69 @@
-/*
-	This program takes an ISBN-9 and returns ISBN-10.
-	Simple program for my college class homework. I did not
-	use header files and other source files because this is just
-	a simple program that is much easier turned in as a single .cpp.
-
-*/
-
-
-
+//
+//  alternate.cpp
+//  HW_2_35
+//
+//  Created by Dylan Kinzer on 2/16/19.
+//  Copyright © 2019 Dylan Kinzer. All rights reserved.
+//
 
 #include <iostream>
-#include <iomanip>
-
+#include <string>
 using namespace std;
 
-/* 
-	This Function takes first 9 digits of ISBN and returns the 10th digit after calculation.
-	If value is 10, function returns ascii representation of 'X'
-*/
-
-int findISBN(int number)
+// Function to get ISBN-10
+string getISBN(string& input)
+// Passed by ref but not declared const because input will have last number appended
 {
-	const int asciiX = 88;
-
-	int d9 = number % 10;
-	number /= 10;
-	int d8 = number % 10;
-	number /= 10;
-	int d7 = number % 10;
-	number /= 10;
-	int d6 = number % 10;
-	number /= 10;
-	int d5 = number % 10;
-	number /= 10;
-	int d4 = number % 10;
-	number /= 10;
-	int d3 = number % 10;
-	number /= 10;
-	int d2 = number % 10;
-	number /= 10;
-	int d1 = number % 10;
-	number /= 10;
-
-	int checksum = (d1 * 1 + d2 * 2 + d3 * 3 + d4 * 4 + d5 * 5 + d6 * 6 + d7 * 7 + d8 * 8 + d9 * 9) % 11;
-
-	if (checksum == 10)
-	{
-		return asciiX;
-	}
-	else
-	{
-		return checksum;
-	}
+    //Declare an array to store each number
+    int isbn[9];
+    
+    //loop through each letter converting to interger and storing in array
+    for (int i = 0; i<input.length(); i++)
+    {
+        isbn[i] = input.at(i) - '0';
+    }
+    
+    //set each variable individually for ease of use
+    int d1 = isbn[0];
+    int d2 = isbn[1];
+    int d3 = isbn[2];
+    int d4 = isbn[3];
+    int d5 = isbn[4];
+    int d6 = isbn[5];
+    int d7 = isbn[6];
+    int d8 = isbn[7];
+    int d9 = isbn[8];
+    
+    // Calculate checksum
+    int checksum = (d1 * 1 + d2 * 2 + d3 * 3 + d4 * 4 + d5 * 5 + d6 * 6 + d7 * 7 + d8 * 8 + d9 * 9) % 11;
+    
+    //Check if 'X' is needed or not
+    if (checksum == 10)
+        return input + "X";
+    else
+    {
+        // changing checksum to string and appending to input
+        input += to_string(checksum);
+        return input;
+    }
 }
-
 void printLines(int n)
 {
-	for (int i = 0; i < n; i++)
-	{
-		cout << "-";
-	}
-	cout << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+}
+int main ()
+{
+    string userInput;
+    cout << "Enter the ISBN-9: ";
+    cin >> userInput;
+    printLines(30);
+    cout << "ISBN-10: " << getISBN(userInput) << endl;
+    printLines(30);
+    
+    return 0;
 }
 
-
-int main() {
-
-	// Declare variable
-	unsigned int firstNine;
-
-	// Prompt user
-	cout << "Enter the first 9 digits as an integer: ";
-	cin >> firstNine;
-
-	//Check if 10th digit is X or a number
-	if (findISBN(firstNine) == 88)
-	{
-		char X = findISBN(firstNine);
-		printLines(30);
-		cout << "The ISBN-10 is : " << setw(9) << setfill('0') << firstNine << X << endl;
-		printLines(30);
-	}
-	else
-	{
-		printLines(30);
-		cout << "The ISBN-10 is : " << setw(9) << setfill('0') << firstNine << findISBN(firstNine) << endl;
-		printLines(30);
-	}
-	
-	return 0;
-}

@@ -1,3 +1,7 @@
+/*
+This program prints a Celsius/Farenheit conversion table
+*/
+
 #include <iostream>
 #include <iomanip>
 using namespace std;

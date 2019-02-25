@@ -1,3 +1,12 @@
+/*
+CD MATURITY CALCULATOR
+This program takes in:
+ -Initial investment amount
+ -APY
+ -Maturity length (in months)
+
+Returns a table showing each months increase
+*/
 #include <iostream>
 #include <iomanip>
 #include <sstream>

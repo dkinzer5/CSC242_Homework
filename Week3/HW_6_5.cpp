@@ -1,3 +1,7 @@
+/*
+Takes in 3 numbers and returns then in ASCENDING order
+*/
+
 #include <iostream>
 #include <algorithm>
 

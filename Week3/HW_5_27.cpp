@@ -1,10 +1,13 @@
-//
-//  main.cpp
-//  HW_5_27
-//
-//  Created by Dylan Kinzer on 2/23/19.
-//  Copyright © 2019 Dylan Kinzer. All rights reserved.
-//
+/*
+This pogram prints a PI table showing what PI equals when using different 
+values of 'i' from the formula. As 'i' increases, the value of PI becomes 
+more and more accurate.
+
+HW_5_27
+
+Created by Dylan Kinzer on 2/23/19.
+Copyright © 2019 Dylan Kinzer. All rights reserved.
+*/
 
 #include <iostream>
 #include <cmath>

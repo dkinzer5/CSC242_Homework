@@ -1,3 +1,8 @@
+/*
+Takes in a, b, c and computes:
+Quadratic formula checking for negative radical, 1 root or 2 roots
+*/
+
 #include <iostream>
 #include <cmath>
 using namespace std;

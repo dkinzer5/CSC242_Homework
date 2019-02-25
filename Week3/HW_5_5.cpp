@@ -1,3 +1,6 @@
+/*
+This program prints out a Kilograms and Pounds conversion table
+*/
 #include <iostream>
 #include <iomanip>
 using namespace std;

@@ -27,6 +27,7 @@ void printPiTable()
 	double sum = 0.0;
 	int increment = 10000;
 
+	//keep going until at 100,000
 	while (increment <= 100000)
 	{
 		for (int i = 1; i < increment; i++)
@@ -38,6 +39,7 @@ void printPiTable()
 			sum += myNumber;
 		}
 
+		//Build PI variable and output the necessary info, formatted properly
 		double PI = 4 * sum;
 		cout << setprecision(6) << fixed;
 		cout << setw(8) << left << increment << "--------" << "> " << PI << endl;

@@ -3,13 +3,13 @@
 
 using namespace std;
 
-//Displays sorted numbers
-void displaySortedNumbers(double num1, double num2, double num3)
+//Display sorted numbers
+void sort(double& num1, double& num2, double& num3)
 {
-	// Map values into an array
+	// Put numbers into an array
 	double userArray[3] = { num1, num2, num3 };
 
-	// Use the sort function from <algorithm>
+	// Sort with sort
 	sort(begin(userArray), end(userArray));
 
 	// Display in ascending order
@@ -18,12 +18,12 @@ void displaySortedNumbers(double num1, double num2, double num3)
 
 int main()
 {
-	//Variables to store user entry
+	//Declare user variables
 	double user1 = 0.0;
 	double user2 = 0.0;
 	double user3 = 0.0;
-	
-	// Prompt user
+
+	// Promp user
 	cout << "Enter first number: ";
 	cin >> user1;
 	cout << "Enter second number: ";
@@ -32,6 +32,6 @@ int main()
 	cin >> user3;
 
 	//Run Function
-	displaySortedNumbers(user1, user2, user3);
+	sort(user1, user2, user3);
 	return 0;
 }

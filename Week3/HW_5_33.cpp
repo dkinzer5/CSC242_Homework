@@ -18,6 +18,7 @@ double calculateGain(const double& principle, const double& interest)
 	return gain;
 }
 
+//Prints lines for readability
 void printLines(const int& n)
 {
 	for (int i = 0; i < n; i++)
@@ -76,7 +77,7 @@ int main()
 	printLines(20);
 	cout << setw(10) << left << "Month" << "CD Value" << endl;
 
-	//iterate through each month and calculate new principle
+	//iterate through each month and accumulate new principle
 	for (int i = 1; i < mDate + 1; i++)
 	{
 		P += calculateGain(P, percentToDecimal(APY));
